@@ -87,10 +87,11 @@ go get code.google.com/p/goprotobuf/protoc-gen-go
 echo "-----> Moving stuff to: $build/bin"
 mkdir -p $build/bin
 mv $GOPATH/bin/* $build/bin
+PATH=$build/bin:$PATH export PATH
 
 echo "-----> Building (protobuf)"
 make protos
 echo "-----> Running go get"
 go get ./...
 
-rm -rf $build/.heroku # Does this need to be deleted?
+#rm -rf $build/.heroku # Does this need to be deleted?
