@@ -95,5 +95,6 @@ echo "-----> Running go get (app)"
 go get ./...
 # Finally, move compiled binary to /app/bin
 mv $GOPATH/bin/* /app/bin
+ls /app/bin
 
 #rm -rf $build/.heroku # Does this need to be deleted?
