@@ -86,7 +86,9 @@ cd $p
 go get -v code.google.com/p/goprotobuf/proto #{proto,protoc-gen-go}
 go get -v code.google.com/p/goprotobuf/protoc-gen-go
 echo "-----> GOPATH: $GOROOT/bin"
-ls $GOROOT/bin
+echo "-----> ls: "
+ls -lA $GOROOT/bin
+ls -lA $GOPATH/bin
 echo "-----> Building (protobuf)"
 make protos
 echo "-----> Running go get"
