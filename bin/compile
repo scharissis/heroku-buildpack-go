@@ -54,8 +54,6 @@ echo "-----> Using Go $ver"
 GOROOT=$cache/go-$ver/go export GOROOT
 GOPATH=$build/.heroku/g export GOPATH
 PATH=$GOROOT/bin:$PATH
-echo "-----> GOPATH: $GOPATH"
-
 
 echo "-----> Checking for Mercurial and Bazaar"
 (
@@ -83,20 +81,16 @@ cp -R $build/* $p
 unset GIT_DIR # unset git dir or it will mess with goinstall
 echo "-----> Running go get (protobuf)"
 cd $p
-go get -v code.google.com/p/goprotobuf/proto #{proto,protoc-gen-go}
-go get -v code.google.com/p/goprotobuf/protoc-gen-go
-echo "-----> GOPATH: $GOROOT/bin"	# Debug
-echo "-----> ls: "	# Debug
-ls -lA $GOROOT/bin	# Debug
+go get v code.google.com/p/goprotobuf/proto #{proto,protoc-gen-go}
+go get v code.google.com/p/goprotobuf/protoc-gen-go
 
 echo "-----> Moving stuff to: $build/bin"
 mkdir -p $build/bin
 mv $GOPATH/bin/* $build/bin
-PATH=$build/bin:$PATH export PATH
-ls -lA $GOPATH/bin	# Debug
+
 echo "-----> Building (protobuf)"
 make protos
 echo "-----> Running go get"
 go get ./...
 
-#rm -rf $build/.heroku # Does this need to be deleted?
+rm -rf $build/.heroku # Does this need to be deleted?
