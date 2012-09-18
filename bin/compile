@@ -81,8 +81,8 @@ cp -R $build/* $p
 unset GIT_DIR # unset git dir or it will mess with goinstall
 echo "-----> Running go get (protobuf)"
 cd $p
-go get v code.google.com/p/goprotobuf/proto #{proto,protoc-gen-go}
-go get v code.google.com/p/goprotobuf/protoc-gen-go
+go get code.google.com/p/goprotobuf/proto #{proto,protoc-gen-go}
+go get code.google.com/p/goprotobuf/protoc-gen-go
 
 echo "-----> Moving stuff to: $build/bin"
 mkdir -p $build/bin
