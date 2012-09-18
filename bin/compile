@@ -54,6 +54,7 @@ echo "-----> Using Go $ver"
 GOROOT=$cache/go-$ver/go export GOROOT
 GOPATH=$build/.heroku/g export GOPATH
 PATH=$GOROOT/bin:$PATH
+echo "-----> GOPATH: $GOPATH"
 
 echo "-----> Checking for Mercurial and Bazaar"
 (
