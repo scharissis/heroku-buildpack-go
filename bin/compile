@@ -86,9 +86,10 @@ go get code.google.com/p/goprotobuf/proto #{proto,protoc-gen-go}
 go get code.google.com/p/goprotobuf/protoc-gen-go
 
 echo "-----> Building protobufs"
-# Move stuff to $build/bin which should be in the PATH
-mkdir -p $build/bin
-mv $GOPATH/bin/* $build/bin
+# Move stuff to a dir which should be in the PATH environment variable
+bin_dir=/app/.heroku/vendor/bin
+mkdir -p $bin_dir
+mv $GOPATH/bin/* $bin_dir
 make protos
 echo "-----> Running go get (app)"
 go get ./...
