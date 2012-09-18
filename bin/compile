@@ -84,7 +84,7 @@ cd $p
 go get code.google.com/p/goprotobuf/proto #{proto,protoc-gen-go}
 go get code.google.com/p/goprotobuf/protoc-gen-go
 echo "-----> Building (protobuf)"
-#make
+make protos
 echo "-----> Running go get"
 go get ./...
 
