@@ -89,9 +89,6 @@ PATH=$build/bin:$PATH export PATH
 
 echo "-----> Building protobufs"
 
-echo "-----> Contents of $build/dir:"
-ls $build/bin
-
 make protos
 echo "-----> Running go get (app)"
 go get ./...
