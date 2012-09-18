@@ -53,7 +53,7 @@ echo "-----> Using Go $ver"
 
 GOROOT=$cache/go-$ver/go export GOROOT
 GOPATH=$build/.heroku/g export GOPATH
-PATH=$GOROOT/bin:$PATH
+PATH=$GOROOT/bin:$build/bin:/app/bin:$PATH export PATH
 
 echo "-----> Checking for Mercurial and Bazaar"
 (
@@ -85,10 +85,7 @@ cd $p
 go get code.google.com/p/goprotobuf/proto #{proto,protoc-gen-go}
 go get code.google.com/p/goprotobuf/protoc-gen-go
 
-PATH=$build/bin:$PATH export PATH
-
 echo "-----> Building protobufs"
-
 make protos
 echo "-----> Running go get (app)"
 go get ./...
