@@ -85,15 +85,18 @@ echo "-----> Running go get (protobuf)"
 cd $p
 go get -v code.google.com/p/goprotobuf/proto #{proto,protoc-gen-go}
 go get -v code.google.com/p/goprotobuf/protoc-gen-go
-echo "-----> GOPATH: $GOROOT/bin"
-echo "-----> ls: "
-ls -lA $GOROOT/bin
-ls -lA $GOPATH/bin
+echo "-----> GOPATH: $GOROOT/bin"	# Debug
+echo "-----> ls: "	# Debug
+ls -lA $GOROOT/bin	# Debug
+
+echo "-----> Moving stuff to: $build/bin"
+mkdir -p $build/bin
+mv $GOPATH/bin/* $build/bin
+
+ls -lA $GOPATH/bin	# Debug
 echo "-----> Building (protobuf)"
 make protos
 echo "-----> Running go get"
 go get ./...
 
-mkdir -p $build/bin
-mv $GOPATH/bin/* $build/bin
 rm -rf $build/.heroku
