@@ -52,8 +52,6 @@ echo "-----> Using Go $ver"
 )
 
 GOROOT=$cache/go-$ver/go export GOROOT
-OLDGOPATH=$GOPATH
-echo "-----> OLD gopath: $OLDGOPATH"
 GOPATH=$build/.heroku/g export GOPATH
 PATH=$GOROOT/bin:$build/bin:/app/bin:$PATH export PATH
 
@@ -94,7 +92,8 @@ mkdir -p $bin_dir
 mv $GOPATH/bin/* $bin_dir
 make protos
 echo "-----> Running go get (app)"
-GOPATH=$OLDGOPATH export GOPATH
 go get ./...
+# Finally, move compiled binary to /app/bin
+mv $GOPATH/bin/* /app/bin
 
 #rm -rf $build/.heroku # Does this need to be deleted?
