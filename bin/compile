@@ -3,6 +3,9 @@
 
 set -e
 
+echo "-----> BUILD: $1"
+echo "-----> CACHE: $2"
+
 mkdir -p "$1" "$2"
 build=$(cd "$1/" && pwd)
 cache=$(cd "$2/" && pwd)
@@ -97,6 +100,7 @@ go get ./...
 mkdir -p /app/bin
 mv $GOPATH/bin/* /app/bin
 cd /app/bin
+pwd
 ls 
 
 #rm -rf $build/.heroku # Does this need to be deleted?
