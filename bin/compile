@@ -94,7 +94,9 @@ make protos
 echo "-----> Running go get (app)"
 go get ./...
 # Finally, move compiled binary to /app/bin
+mkdir -p /app/bin
 mv $GOPATH/bin/* /app/bin
-ls /app/bin
+cd /app/bin
+ls 
 
 #rm -rf $build/.heroku # Does this need to be deleted?
