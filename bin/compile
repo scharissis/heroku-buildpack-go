@@ -79,19 +79,20 @@ mkdir -p $p
 cp -R $build/* $p
 
 unset GIT_DIR # unset git dir or it will mess with goinstall
+
 echo "-----> Running go get (protobuf)"
 cd $p
 go get code.google.com/p/goprotobuf/proto #{proto,protoc-gen-go}
 go get code.google.com/p/goprotobuf/protoc-gen-go
 
-echo "-----> Moving stuff to: $build/bin"
+#echo "-----> Moving stuff to: $build/bin"
 mkdir -p $build/bin
 mv $GOPATH/bin/* $build/bin
 PATH=$build/bin:$PATH export PATH
 
-echo "-----> Building (protobuf)"
+echo "-----> Building protobufs"
 make protos
-echo "-----> Running go get"
+echo "-----> Running go get (app)"
 go get ./...
 
 #rm -rf $build/.heroku # Does this need to be deleted?
