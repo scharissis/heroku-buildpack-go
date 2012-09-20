@@ -96,10 +96,10 @@ mv $GOPATH/bin/* $bin_dir
 #make protos
 echo "-----> Running go get (app)"
 go get ./...
-# Finally, move compiled binary to /app/bin
-#mkdir -p /app/bin
-#mv $GOPATH/bin/* /app/bin
-cd /app/bin
+# Finally, move compiled binary to $build/bin
+mkdir -p $build/bin
+mv $GOPATH/bin/* $build/bin
+cd $build/bin
 pwd
 ls 
 
