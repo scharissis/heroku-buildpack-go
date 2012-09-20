@@ -93,7 +93,7 @@ echo "-----> Building protobufs"
 bin_dir=/app/.heroku/vendor/bin
 mkdir -p $bin_dir
 mv $GOPATH/bin/* $bin_dir
-make protos
+#make protos
 echo "-----> Running go get (app)"
 go get ./...
 # Finally, move compiled binary to /app/bin
