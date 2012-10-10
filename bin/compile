@@ -95,7 +95,7 @@ mkdir -p $bin_dir
 mv $GOPATH/bin/* $bin_dir
 make protos
 echo "-----> Running go get (app)"
-go get ./...
+go get ./frontend
 # Finally, move compiled binary to $build/bin
 # Heroku will move the contents of this dir to /app/bin afterwards.
 mkdir -p $build/bin
