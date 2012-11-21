@@ -94,6 +94,10 @@ bin_dir=/app/.heroku/vendor/bin
 mkdir -p $bin_dir
 mv $GOPATH/bin/* $bin_dir
 make protos
+
+echo "-----> Running go get (bmizerany/pq)"
+go get github.com/bmizerany/pq
+
 echo "-----> Running go get (app)"
 go get ./frontend
 # Finally, move compiled binary to $build/bin
