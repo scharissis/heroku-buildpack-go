@@ -61,7 +61,7 @@ PATH=$GOROOT/bin:$build/bin:/app/bin:$PATH export PATH
 echo "-----> Checking for Mercurial and Bazaar"
 (
     set -e
-    which hg && which bzr && exit
+    which hg && which bzr && which git exit
     echo "Installing Mercurial and Bazaar"
 
     virtualenv --python $python --distribute --never-download --prompt='(venv) ' $venv
@@ -74,7 +74,11 @@ echo "-----> Checking for Mercurial and Bazaar"
 
     pip install --use-mirrors mercurial
     pip install --use-mirrors bzr
+    pip install --use-mirrors git
 ) 2>&1 | sed -u 's/^/       /'
+
+which git
+git --version
 
 name=$(cat $build/.godir)
 p=$GOPATH/src/$name
