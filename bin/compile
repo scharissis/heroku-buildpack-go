@@ -80,6 +80,7 @@ echo "-----> Checking for Mercurial and Bazaar"
 which git
 git --version
 
+
 name=$(cat $build/.godir)
 p=$GOPATH/src/$name
 mkdir -p $p
@@ -100,6 +101,10 @@ mv $GOPATH/bin/* $bin_dir
 make protos
 
 echo "-----> Running go get (bmizerany/pq)"
+# Dirty hax
+#git clone http://github.com/bmizerany/pq /tmp/build_15ti55sbmubvb/.heroku/g/src/github.com/bmizerany/pq
+echo "Build: $(build)"
+echo "P    : $(p)"
 go get -x github.com/bmizerany/pq
 
 echo "-----> Running go get (app)"
@@ -109,4 +114,4 @@ go get ./frontend
 mkdir -p $build/bin
 mv $GOPATH/bin/* $build/bin
 
-#rm -rf $build/.heroku # Does this need to be deleted?
+rm -rf $build/.heroku # Does this need to be deleted?
