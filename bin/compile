@@ -102,9 +102,8 @@ make protos
 
 echo "-----> Running go get (bmizerany/pq)"
 # Dirty hax
-#git clone http://github.com/bmizerany/pq /tmp/build_15ti55sbmubvb/.heroku/g/src/github.com/bmizerany/pq
-echo "Build: $build"
-echo "P    : $p"
+git clone http://github.com/bmizerany/pq $GOPATH/src/github.com/bmizerany/pq
+#echo "Build: $build"
 go get -x github.com/bmizerany/pq
 
 echo "-----> Running go get (app)"
