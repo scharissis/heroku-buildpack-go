@@ -79,7 +79,7 @@ echo "-----> Checking for Mercurial and Bazaar"
 
 which git
 git --version
-
+curl
 
 name=$(cat $build/.godir)
 p=$GOPATH/src/$name
@@ -103,7 +103,7 @@ make protos
 echo "-----> Running go get (bmizerany/pq)"
 # Dirty hax
 git clone http://github.com/bmizerany/pq $GOPATH/src/github.com/bmizerany/pq
-#echo "Build: $build"
+echo "Cloned bmizerany."
 go get -x github.com/bmizerany/pq
 
 echo "-----> Running go get (app)"
