@@ -77,9 +77,7 @@ echo "-----> Checking for Mercurial and Bazaar"
     pip install --use-mirrors git
 ) 2>&1 | sed -u 's/^/       /'
 
-which git
-git --version
-curl
+#git --version
 
 name=$(cat $build/.godir)
 p=$GOPATH/src/$name
