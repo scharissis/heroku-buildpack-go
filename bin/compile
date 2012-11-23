@@ -113,4 +113,4 @@ go get ./frontend
 mkdir -p $build/bin
 mv $GOPATH/bin/* $build/bin
 
-rm -rf $build/.heroku # Does this need to be deleted?
+GIT_SSL_NO_VERIFY=true rm -rf $build/.heroku # Does this need to be deleted?
