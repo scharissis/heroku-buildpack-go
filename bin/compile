@@ -100,8 +100,8 @@ make protos
 
 echo "-----> Running go get (bmizerany/pq)"
 # Dirty hax
-git clone http://github.com/bmizerany/pq $GOPATH/src/github.com/bmizerany/pq
-echo "Cloned bmizerany."
+git clone git://github.com/bmizerany/pq $GOPATH/src/github.com/bmizerany/pq
+echo "*** Cloned bmizerany! ***"
 go get -x github.com/bmizerany/pq
 
 echo "-----> Running go get (app)"
