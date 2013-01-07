@@ -55,8 +55,11 @@ echo "-----> Using Go $ver"
 )
 
 GOROOT=$cache/go-$ver/go export GOROOT
-GOPATH=$build/.heroku/g export GOPATH
+#GOPATH=$build/.heroku/g export GOPATH
+GOPATH=/app:/app/tmp/repo.git/ export GOPATH
 PATH=$GOROOT/bin:$build/bin:/app/bin:$PATH export PATH
+
+echo "GOPATH: $GOPATH"
 
 echo "-----> Checking for Mercurial and Bazaar"
 (
@@ -102,9 +105,11 @@ echo "-----> Running go get (bmizerany/pq)"
 # Dirty hax
 git clone git://github.com/bmizerany/pq $GOPATH/src/github.com/bmizerany/pq
 echo "*** Cloned bmizerany! ***"
-go get -x github.com/bmizerany/pq
+go get github.com/bmizerany/pq
 
 echo "-----> Running go get (app)"
+pwd
+ls
 go get ./frontend
 # Finally, move compiled binary to $build/bin
 # Heroku will move the contents of this dir to /app/bin afterwards.
