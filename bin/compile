@@ -111,7 +111,8 @@ echo "-----> Running go get (app)"
 pwd
 export GOPATH=`pwd`
 echo $GOPATH
-go get ./frontend
+go install rtrt/frontend
+
 # Finally, move compiled binary to $build/bin
 # Heroku will move the contents of this dir to /app/bin afterwards.
 mkdir -p $build/bin
