@@ -109,7 +109,8 @@ go get github.com/bmizerany/pq
 
 echo "-----> Running go get (app)"
 pwd
-ls
+export GOPATH=`pwd`
+echo $GOPATH
 go get ./frontend
 # Finally, move compiled binary to $build/bin
 # Heroku will move the contents of this dir to /app/bin afterwards.
