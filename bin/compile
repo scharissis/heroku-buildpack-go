@@ -108,9 +108,12 @@ echo "*** Cloned bmizerany! ***"
 go get github.com/bmizerany/pq
 
 echo "-----> Running go get (app)"
-pwd
-export GOPATH=`pwd`
+export GOPATH=`pwd` # Debug
 echo $GOPATH
+ls
+echo ''
+echo "`pwd`/src:"
+ls src
 go install rtrt/frontend
 
 # Finally, move compiled binary to $build/bin
