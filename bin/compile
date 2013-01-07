@@ -56,7 +56,7 @@ echo "-----> Using Go $ver"
 
 GOROOT=$cache/go-$ver/go export GOROOT
 #GOPATH=$build/.heroku/g export GOPATH
-GOPATH=/app:/app/tmp/repo.git/ export GOPATH
+GOPATH=/app/tmp/repo.git/ export GOPATH
 PATH=$GOROOT/bin:$build/bin:/app/bin:$PATH export PATH
 
 echo "GOPATH: $GOPATH"
