@@ -73,6 +73,8 @@ p=$GOPATH/src/$name
 mkdir -p $p
 cp -R $build/* $p
 
+export GOPATH=$p
+
 unset GIT_DIR # unset git dir or it will mess with goinstall
 
 echo "-----> Running go get (protobuf)"
@@ -89,15 +91,14 @@ make protos
 
 echo "-----> Running go get (bmizerany/pq)"
 # Dirty hax
-git clone git://github.com/bmizerany/pq $GOPATH/src/github.com/bmizerany/pq
-echo "*** Cloned bmizerany! ***"
+#git clone git://github.com/bmizerany/pq $GOPATH/src/github.com/bmizerany/pq
+#echo "*** Cloned bmizerany! ***"
 go get github.com/bmizerany/pq
 
 echo "-----> Running: go get ./..."
 cd $p
 echo "p: $p"
 ls $p/src/rtrt
-export GOPATH=$p
 echo "GOPATH: $GOPATH"
 ls $GOPATH
 #go get ./...
