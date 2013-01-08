@@ -103,4 +103,4 @@ mv $GOPATH/bin/* $build/bin
 rm -rf $build/.heroku
 
 mkdir -p $build/.profile.d
-echo 'export PATH=$PATH:$HOME/bin:/1337/test' > $build/.profile.d/go.sh
+echo 'export PATH=$PATH:$HOME/bin:/test/ispneeded' > $build/.profile.d/go.sh
