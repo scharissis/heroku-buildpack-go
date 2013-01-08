@@ -96,7 +96,8 @@ go get github.com/bmizerany/pq
 echo "-----> Running: go get ./..."
 cd $p
 echo "p: $p"
-ls $p
+ls $p/src/rtrt
+export GOPATH=$p
 echo "GOPATH: $GOPATH"
 ls $GOPATH
 #go get ./...
