@@ -90,10 +90,10 @@ mv $GOPATH/bin/* $bin_dir
 make protos
 
 echo "-----> Running go get (bmizerany/pq)"
-# Dirty hax
-#git clone git://github.com/bmizerany/pq $GOPATH/src/github.com/bmizerany/pq
+# Dirty hax (go get --> https remote helper error)
+git clone git://github.com/bmizerany/pq $GOPATH/src/github.com/bmizerany/pq
+#go get github.com/bmizerany/pq
 #echo "*** Cloned bmizerany! ***"
-go get github.com/bmizerany/pq
 
 echo "-----> Running: go get ./..."
 cd $p
