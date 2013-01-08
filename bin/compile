@@ -63,9 +63,9 @@ then
     pip install --use-mirrors mercurial > /dev/null 2>&1
     echo " done"
 
-    echo -n "       Installing Bazaar..."
-    pip install --use-mirrors bzr > /dev/null 2>&1
-    echo " done"
+    #echo -n "       Installing Bazaar..."
+    #pip install --use-mirrors bzr > /dev/null 2>&1
+    #echo " done"
 fi
 
 name=$(cat $build/.godir)
@@ -73,7 +73,8 @@ p=$GOPATH/src/$name
 mkdir -p $p
 cp -R $build/* $p
 
-export GOPATH=$p
+#$p is what you expect GOPATH to be.
+export GOPATH=$p # magic fix! 
 
 unset GIT_DIR # unset git dir or it will mess with goinstall
 
@@ -91,17 +92,10 @@ make protos
 
 echo "-----> Running go get (bmizerany/pq)"
 # Dirty hax (go get --> https remote helper error)
-git clone git://github.com/bmizerany/pq $GOPATH/src/github.com/bmizerany/pq
 #go get github.com/bmizerany/pq
-#echo "*** Cloned bmizerany! ***"
+git clone git://github.com/bmizerany/pq $GOPATH/src/github.com/bmizerany/pq
 
-echo "-----> Running: go get ./..."
-cd $p
-echo "p: $p"
-ls $p/src/rtrt
-echo "GOPATH: $GOPATH"
-ls $GOPATH
-#go get ./...
+echo "-----> Running go install rtrt/frontend"
 go install rtrt/frontend
 
 mkdir -p $build/bin
@@ -109,4 +103,4 @@ mv $GOPATH/bin/* $build/bin
 rm -rf $build/.heroku
 
 mkdir -p $build/.profile.d
-echo 'export PATH=$PATH:$HOME/bin' > $build/.profile.d/go.sh
+echo 'export PATH=$PATH:$HOME/bin:/1337/test' > $build/.profile.d/go.sh
