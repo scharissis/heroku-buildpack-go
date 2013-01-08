@@ -95,8 +95,9 @@ go get github.com/bmizerany/pq
 
 echo "-----> Running: go get ./..."
 cd $p
-#go get ./...
-go install rtrt/frontend
+echo "GOPATH: $GOPATH"
+go get ./...
+#go install rtrt/frontend
 
 mkdir -p $build/bin
 mv $GOPATH/bin/* $build/bin
